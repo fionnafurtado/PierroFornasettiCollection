@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <body style="background-color: rgb(255, 0, 51);"></body>
+</head>
+<body>
+    <style>
+        .image-container {
+          position: relative;
+          display: inline-block;
+        }
+    
+        .image-container img {
+          display: block;
+          width: 300px; /* Adjust image width as needed */
+          height: auto; /* Maintain aspect ratio */
+        }
+    
+        .image-text {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          opacity: 0;
+          transition: opacity 0.3s ease-in-out;
+          background-color: rgba(0, 0, 0, 0.7);
+          color: rgb(255, 255, 255);
+          padding: 10px;
+          text-align: center;
+        }
+    
+        .image-container:hover .image-text {
+          opacity: 1;
+        }
+    
+        .image-container a {
+          display: block;
+          text-decoration: none;
+          color: inherit;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="image-container">
+        <a href="https://www.chairish.com/product/2465873/piero-fornasetti-porcelain-plate-themes-variation-pattern-114-profile-tema-e-variazioni">
+          <img src="https://chairish-prod.freetls.fastly.net/image/product/master/d964a428-0405-456e-8aa9-6d93242af992/piero-fornasetti-porcelain-plate-themes-and-variation-pattern-114-profile-tema-e-variazioni-1506" alt="Your Image">
+          <div class="image-text">Piero Fornasetti Porcelain Plate Themes & Variation Pattern 114, Profile, Tema E Variazioni</div>
+        </a>
+      </div>
+      <div class="image-container">
+        <a href="https://www.sothebys.com/en/buy/_vintage-Piero-Fornasetti-italian-porcelain-themes-and-variation-plate-215-e1e3">
+          <img src="https://sothebys-md.brightspotcdn.com/e0/f1/f7c8510d4635a52d97880bb0e8c7/vintage-piero-fornasetti-italian-porcelain-themes-and-variation-plate-215.png" alt="Your Image">
+          <div class="image-text">Piero Fornasetti Italian Porcelain Theme and Variations Plate #215 1990 - 1999</div>
+        </a>
+      </div>
+      <div class="image-container">
+        <a href="https://www.sothebys.com/en/buy/_themes-and-variations-plate-224-a6a1">
+          <img src="https://sothebys-md.brightspotcdn.com/dims4/default/bb6e815/2147483647/strip/true/crop/2400x2400+0+0/resize/800x800!/quality/90/?url=http%3A%2F%2Fsothebys-brightspot.s3.amazonaws.com%2Fmedia-desk%2Fde%2Fdd%2Fa86960b84651b1745865c42817b9%2Fbxmrw-front.png" alt="Your Image">
+          <div class="image-text">PIERO FORNASETTI Themes and Variations Plate #224 Circa 1980 </div>
+        </a>
+      </div>
+      <style>
+        body {
+          margin: 0;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+          background-color: #f0f0f0; /* Set your preferred background color */
+        }
+    
+        .floating-text {
+          font-size: 15em; /* Adjust font size as needed */
+          font-family: 'Lato', sans-serif;
+          animation: floatAnimation 5s ease-in-out infinite alternate; /* Adjust animation duration and timing */
+        }
+    
+        @keyframes floatAnimation {
+          0% {
+            transform: translateY(0);
+          }
+          100% {
+            transform: translateY(-50px); /* Adjust the distance and direction of floating */
+          }
+        }
+      </style>
+    </head>
+    <body>
+      <div class="floating-text">
+        Buy it here!
+      </div>
+</body>
+</html>

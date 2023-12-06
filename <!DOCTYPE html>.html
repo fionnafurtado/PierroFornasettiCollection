@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>pictures</title>
+    <style>
+      /* Styles for background and image display */
+      body {
+        margin: 0;
+        padding: 0;
+        background-image: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZmF1c2U4YTRmbDljazZjNDI1ZHF0aXk3NjExYjBsdHR0ZXM0eXoxZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/E3nOYslqdgv20mpAcC/giphy.gif'); /* Replace with your background image path */
+        background-size: cover;
+        background-position: center;
+        font-family: 'Lato', sans-serif;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      #image-container {
+        text-align: center;
+        margin-top: 20px;
+      }
+      img {
+        max-width: 300px;
+        max-height: 300px;
+      }
+      button {
+        margin-top: 5px;
+        font-size: 25px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        background-color: #deecf600;
+        color: rgba(255, 255, 255, 0.555);
+        font-family: 'Lato', sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="font-family: 'Lato', sans-serif;"></div>
+    <button onclick="showRandomImage()">PICTURES TAKEN BY MOM!</button>
+    <div id="image-container"></div>
+  
+    <script>
+      const imagePaths = [
+        'https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHQwbW5xcDlicTc3M3M2aWs1eWU3djhhMGd6b3prdDMwODBua3huZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AyVh6kgUQ9tsJMIC7a/giphy.gif', // Replace with the actual paths of images on your Mac
+        'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExYWM2a2dzeW9zdGg5Z3B0MWxhMGRiYW04ajU5cm1vaWdzNnBmMzRyaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/08QrcFpPyZ4M6berKv/giphy.gif',
+        'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXNldHRlc2I0eGo3c2lmdWZ1bnZmZGxuejZmaHB1b21hdW9lZDNodyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0Iaxcxt42nV2FwmkA/giphy.gif',
+        'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3VlcXhyb3l2bzVsdG4yNWJ1d3k2dGNoOWhxNHdtYzdldGVmY3VydSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/EzfkzTgPQqiJIejlob/giphy.gif',
+        'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDgwNmVka29xa3I5eWUwaXo3cXU5NWxvMmIwMDJjYzJseDAxaG4yeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/P9XF0RYyV1NPY0PaUE/giphy.gif',
+        'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExY2VpNTgwenR1OXFobzdsMzlkdXZ2ODJidzY0NGxodmg2cjh0ZG83bSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/drDgrAUgavcHiwElio/giphy.gif',
+        'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGk2Mm5qNTJ2N2lnd2o1ZGQ0cXJyNmRsaTBjOHltMDRjcndnM29pOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/rE4Mz91VSZd5v0Z3ma/giphy.gif',
+        'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdm4wcnF1eXA2NDBsZDJzNWJkb2J0b2FwZjlnYmxkZzR0MGx3ZHVvOSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/C39gmNXrQtQ6C9DpoS/giphy.gif',
+        'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2pkcWg0c24yd3ZjZTl2bDRqZHc3cWNwZGI0OHc5cTlzdHVlM2Z0OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kvf9mfWFattfPPHGRX/giphy.gif',
+        'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYmdsc2Q3ZjRsd2tnYWpkYTd6NHR6OXl3ZTFvOW92MThsMTJsOXo3NSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/w5aoNABEGeHwKUTelM/giphy.gif',
+        'https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExa3N0c3AxMTQybWd6dThwcG9zdTJmb3FjYXFrdWcza3BjNnNxbThnaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Fd5eF4S2arUu1X4JoA/giphy.gif',
+        'https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXliNWQ5YTFqeWJwdmxldjNiaW1wdWp6ZjdyOHppdDRoeXJhbnZydyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/aWLpYaGjiUK4ixlj9b/giphy.gif',
+        'https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZDNlNmV1bHB3bXU3ZHJyNWtsc3E4a2pxcXQ5ajB0cDdyYTFjMWozZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FBBdKzOosvufo91Msp/giphy.gif',
+        // Add more image paths as needed
+      ];
+  
+      function showRandomImage() {
+        const randomIndex = Math.floor(Math.random() * imagePaths.length);
+        const randomImagePath = imagePaths[randomIndex];
+  
+        const imageContainer = document.getElementById('image-container');
+        imageContainer.innerHTML = `<img src="${randomImagePath}" alt="Random Image">`;
+      }
+    </script>
+</body>
+</html>
