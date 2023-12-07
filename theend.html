@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #grad1 {
+          height: 200px;
+          background-image: linear-gradient(to bottom right, rgb(243, 5, 124), rgb(239, 255, 14));
+        }
+     </style>
+   
+</head>
+<body>
+  <div class="heart-frame">
+    <img class="image" src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExaDd3bDAwNDFyZWJxb3k1ODNjY3d0M213aWM1MnR4aWF3bDNidGh4NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/YH1vcPuu3iOQPhkRf8/giphy.gif" alt="Your Image" width="700" height="900">
+  </div>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      background-color: #f0f0f0; /* Set your preferred background color */
+    }
+
+    .floating-text {
+      font-size: 10em; /* Adjust font size as needed */
+      animation: floatAnimation 10s linear infinite; /* Adjust animation duration and timing */
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @keyframes floatAnimation {
+      0% {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(-100%);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="floating-text">
+        <div style="font-family: 'Lato' sans-serif;">
+            Everytime I see his work, I see my Mother, my home, and comfort.
+        </div>
+        </div>
+</body>
+</html>
